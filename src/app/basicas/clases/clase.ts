@@ -1,12 +1,9 @@
-import { EventEmitter } from '@angular/core';
 
 
 
-
-export class Jugador2 {
+export class Jugador {
 
     hp: number;
-    hpCambia = new EventEmitter<number>();
 
     constructor() {
         this.hp = 100;
@@ -20,7 +17,7 @@ export class Jugador2 {
             this.hp = this.hp - danio;
         }
 
-        this.hpCambia.emit( this.hp );
+        return this.hp;
     }
 
 }

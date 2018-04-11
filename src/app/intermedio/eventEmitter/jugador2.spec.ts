@@ -1,32 +1,39 @@
-import { Juagador2 } from './jugador2';
-import { Juagador } from '../../basicas/clases/clases';
+import { Jugador2 } from './jugador2';
 
-describe('Jugador 2 Emit', () => {
-  let jugador: Juagador2;
 
-  beforeEach(() => jugador = new Juagador2());
 
-  it('Debe de emitir un evento cuando recibe daño', () => {
+describe( 'Jugador 2 Emit',  () => {
 
-    let nuevoHP = 0;
+    let jugador: Jugador2;
 
-    jugador.hpCambia.subscribe(hp => {
-      nuevoHP = hp;
-    })
+    beforeEach( () => jugador = new Jugador2() );
 
-    jugador.recibeDanio(1000);
+    it( 'Debe de emitir un evento cuando recibe daño', () => {
 
-    expect(nuevoHP).toBe(0);
-  });
+        let nuevoHP = 0;
 
-  it('Debe de emitir un evento cuando recibe daño y sobrevivier si es menor de 100', () => {
+        jugador.hpCambia.subscribe( hp => {
+            nuevoHP = hp;
+        });
 
-    let nuevoHP = 0;
+        jugador.recibeDanio(1000);
 
-    jugador.hpCambia.subscribe(hp =>  nuevoHP = hp);
+        expect( nuevoHP ).toBe(0);
 
-    jugador.recibeDanio(50);
+    });
 
-    expect(nuevoHP).toBe(50);
-  });
+    it( 'Debe de emitir un evento cuando recibe daño y sobrevivir si es menos de 100', () => {
+
+        let nuevoHP = 0;
+
+        jugador.hpCambia.subscribe( hp => nuevoHP = hp);
+
+        jugador.recibeDanio(50);
+
+        expect( nuevoHP ).toBe(50);
+
+    });
+
+
 });
+

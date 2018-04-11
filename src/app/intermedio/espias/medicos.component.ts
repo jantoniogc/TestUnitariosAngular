@@ -15,28 +15,28 @@ export class MedicosComponent implements OnInit {
   public medicos: any[] = [];
   public mensajeError: string;
 
-  constructor(public _medicoService: MedicosService) { }
+  constructor( public _medicoService: MedicosService ) {}
 
   ngOnInit() {
     this._medicoService.getMedicos()
-      .subscribe(medicos => this.medicos = medicos);
+          .subscribe( medicos => this.medicos = medicos );
   }
 
   agregarMedico() {
     const medico = { nombre: 'Médico Juan Carlos' };
 
     this._medicoService.agregarMedico(medico)
-      .subscribe(
-        medicoDB => this.medicos.push(medicoDB),
-        err => this.mensajeError = err
-      );
+          .subscribe(
+            medicoDB => this.medicos.push(medicoDB),
+            err => this.mensajeError = err
+          );
   }
 
   borrarMedico(id: string) {
     const confirmar = confirm('Estas seguro que desea borrar este médico');
 
-    if (confirmar) {
-      this._medicoService.borrarMedico(id);
+    if ( confirmar ) {
+      this._medicoService.borrarMedico( id );
     }
 
   }

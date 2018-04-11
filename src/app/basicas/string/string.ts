@@ -1,5 +1,5 @@
-export function mensaje (nombre: string) {
-  return `Saludos ${nombre}`;
-  //return true;
-}
 
+
+export function mensaje( nombre: string ) {
+    return `Saludos ${ nombre }`; // Saludos Fernando
+}

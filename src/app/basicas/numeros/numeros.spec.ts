@@ -1,15 +1,26 @@
 import { incrementar } from './numeros';
 
 
-describe('Prueba de Números', () =>{
-  it('Debe de retorna 100, si el número es mayor de 100', () => {
-    const resp = incrementar(300);
-    expect(resp).toBe(100);
 
-  });
 
-  it('Deber retornar el número mas uno', () => {
-    const resp = incrementar(50);
-    expect(resp).toBe(51);
-  });
+
+describe('Pruebas de números', () => {
+
+    it( 'Debe de retornar 100, si el número ingresado es mayor a 100', () => {
+
+        const res = incrementar(300);
+        expect( res ).toBe(100);
+
+    });
+
+    it( 'Debe de retornar el número ingresado + 1, si no es mayor a 100', () => {
+
+        const res = incrementar(50);
+        expect( res ).toBe(51);
+
+    });
+
+
+
+
 });
